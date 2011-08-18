@@ -1,16 +1,31 @@
 +---------------------------------------------------------------+
   SQuad (acronym for "Some Simple Script Samples" or "Sx4")
 +---------------------------------------------------------------+
- 
+
+The ".project" and ".pydevproject" files in the root folder contain
+eclipse settings that require a Jython installation on the development
+machine, along with the PyDev plugin for eclipse. The PyDev plugin can
+be downloaded (or added as an eclipse installation update site)
+at: http://pydev.org/updates.
+
 This project contains various scripts samples, implemented in various 
 scripting languages.
 
+src/
+|  |
+|  + bash/
+|  |
+|  + groovy/
+|  |
+|  + jython/
+|  |
+|  + powershell/
 |
-+bash
+test/
+|  |
+|  + testdata/ (dummy file structure for testing purposes)
 |
-+groovy
-|
-+jython
-|
-+powershell
-|
++ README (this document)
++ .project
++ .pydevproject
+
