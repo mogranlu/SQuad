@@ -1,0 +1,16 @@
++---------------------------------------------------------------+
+  SQuad (acronym for "Some Simple Script Samples" or "Sx4")
++---------------------------------------------------------------+
+ 
+This project contains various scripts samples, implemented in various 
+scripting languages.
+
+|
++bash
+|
++groovy
+|
++jython
+|
++powershell
+|
