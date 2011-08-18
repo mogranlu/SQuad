@@ -3,15 +3,21 @@
 # @author: Morten Granlund
 #
 # Comment:
+# --------
 # This script creates a md5sum snapshot output which can be
 # compared with a file structure at any other time to detect
 # which files have been added, deleted or changed.
+#
+# Finding the files changed, added, or removed is as simple
+# as diffing the output from this command run at two different
+# point in time.  
+#
 # 
-# Two things to note about the internal mechanisms of this 
-# script:
+# Two things to note about the internal mechanisms of this script: 
+#            --------
 #
 # 1) The crawling mechanism is base on the linux "ls" 
-#	 (list files) command with the following to options:
+#	 (list files) command with the following two options:
 #      --almost-all (lists hidden files)
 #      --dereference (follows symbolic links)
 #    Look out for cyclic links due to the sym links
