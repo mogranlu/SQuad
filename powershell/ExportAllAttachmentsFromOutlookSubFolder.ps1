@@ -21,23 +21,23 @@ $subfolderList = $inbox.Folders
 
 # Traverse the subfolders of "Inbox", until we find the one we're after.
 foreach ($nextsub in $subfolderList) {
-	$folderName = $nextsub.Name
-	if ($folderName -eq $OUTLOOK_FOLDER) {
-		Write-Output "Found folder: $folderName !"
-		Write-Output "Will try to export all attachments within this Outlook folder..."
-		
-		# Start the actual exports of the attachments
-		foreach ($group in $nextsub.items |% {$_.attachments} | group filename) { 
-			trap { 
-				Write-Host "COULD NOT SAVE FILE $filename !"
-				continue 
-			} 
-			$filename = "$EXPORT_FOLDER\$($group.Name)" 
-			$group.Group[0].saveasfile($filename) 
-			if ($?) {
-				Write-Host Successfully saved file $filename ...
-			} 
-		}
-	}
+    $folderName = $nextsub.Name
+    if ($folderName -eq $OUTLOOK_FOLDER) {
+        Write-Output "Found folder: $folderName !"
+        Write-Output "Will try to export all attachments within this Outlook folder..."
+
+        # Start the actual exports of the attachments
+        foreach ($group in $nextsub.items |% {$_.attachments} | group filename) { 
+            trap { 
+                Write-Host "COULD NOT SAVE FILE $filename !"
+                continue 
+            } 
+            $filename = "$EXPORT_FOLDER\$($group.Name)" 
+            $group.Group[0].saveasfile($filename) 
+            if ($?) {
+                Write-Host Successfully saved file $filename ...
+            } 
+        }
+    }
 }
 
