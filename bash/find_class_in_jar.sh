@@ -6,3 +6,25 @@ find /usr/share/openoffice/basis3.2/help/ -name "*.jar" -exec unzip -l '{}' \; |
 
 # Attempt #3 : Lots of output, but works OK in git bash on Windows machines:
 searchClass="DefaultPluginManager"; searchDir="/C/Users/Morten/.m2/repository" ; find ${searchDir} -name "*.jar" -exec echo "...Searching: {}" \; -exec jar -tf '{}' \; | egrep -e "^\.\.\.Searching|${searchClass}"
+
+
+$ find /D/maven_repository/ -name "*.jar" \
+    -exec unzip -l '{}' \; \
+    | awk ' \
+        # Init: \
+        BEGIN { \
+            result="Found in: " \
+        }; \
+        # For each line in result, do the following: \
+        { \
+            if ($0 ~ /^Archive/ ) { \
+                print "Searching archive", $NF; lastjar=$NF \
+            } \
+            # Enter search criteria here: \
+            if ($0 ~ /\/StringUtils.class/ ) { \
+                print $NF; result=result '\n' lastjar \
+            } \
+        }; \
+        # Finally, print result \
+        END {print result} \
+    '
