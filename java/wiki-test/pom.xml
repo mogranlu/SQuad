@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>mg</groupId>
+	<artifactId>wiki-test</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>wiki-test</name>
+	<description>Testing if it is possible to post stuff to a wiki with java code!</description>
+	
+	<!--  Cannot find the jwbf framework in any of the central maven repos, but they have been kind enough to publish their own maven repository! :-) -->
+	<repositories>
+		<repository>
+			<name>JWBF</name>
+			<id>jwbf</id>
+			<url>http://jwbf.sourceforge.net/m2</url>
+		</repository>
+	</repositories>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>net.sourceforge</groupId>
+			<artifactId>jwbf</artifactId>
+			<version>1.3.4-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.2</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+</project>
