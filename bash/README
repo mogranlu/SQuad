@@ -1,0 +1,18 @@
+#======================================================================
+# Example BASH scripts. Have been tested in gnome-terminal on 
+# Ubuntu, and using Git BASH on Windows.
+# I cannot see any reasons why it should not work in Cygwin as well...
+#======================================================================
+
+Eclipse users:
+----------------
+The .project file in this folder is added to version control for those
+who want to look at or edit the files using Eclipse.
+
+ShellEd plugin (eclipse)
+-------------------------
+For content assist, markup colors and "API help on hover", install the
+Eclipse plugin "ShellEd" v1.0.4. (did not get later versions to work with 
+newer versions of Eclipse). Unfortunately the plugin must be downloaded and
+put manually in Eclipse's plugins directory (and you must restart eclipse).
+ 

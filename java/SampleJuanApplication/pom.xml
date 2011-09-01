@@ -1,0 +1,100 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<relativePath>../..</relativePath>
+		<groupId>mg</groupId>
+		<artifactId>SQuad</artifactId>
+		<version>1.0-SNAPSHOT</version>			
+	</parent>
+
+	<groupId>mg</groupId>
+	<artifactId>SampleJuanApplication</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	
+
+	<name>SampleJuanApplication</name>
+	<description>
+		This is an example module that uses the JUAN framework. 
+		Notice that your maven pom file needs three standard dependencies: {juan, junit, and aspectj},
+		and you also need two plugins defined in your build block: {aspectj-maven-plugin and maven-eclipse-plugin and}
+	</description>
+
+	<!-- 
+	 A minimum of three dependencies are necessary for the JUAN framework 
+	 to function:
+	-->
+	<dependencies>
+
+		<!-- 1) the main JUAN framework module is required! -->
+		<dependency>
+			<groupId>JavaZone2011</groupId>
+			<artifactId>juan</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<!-- 2) Although JUAN can strictly speaking be run without junit, it is often a good idea to 
+			have junit test trigger JUAN notifications! In CI (Continuous Integration) 
+			projects, the JUnit tests are periodically run, and there is no need for 
+			extra scheduled "cron" jobs to execute your customized JUAN code! -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.2</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- 3) The notification framework is based on aspects, meaning that the modules 
+			containing JUAN notification tests must be AspectJ-enabled -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.6.7</version>
+		</dependency>
+	</dependencies>
+
+	<!-- 
+	 These two plugins are needed (with reference to juan), 
+	 unless you really know what you're doing and want to manually set up 
+	 aspectj settings (not recommended)! 
+	-->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>aspectj-maven-plugin</artifactId>
+				<version>1.3</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<aspectLibraries>
+						<aspectLibrary>
+							<groupId>JavaZone2011</groupId>
+							<artifactId>juan</artifactId>
+						</aspectLibrary>
+					</aspectLibraries>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>process-sources</phase>
+						<goals>
+							<goal>compile</goal>       <!-- use this goal to weave all your main classes -->
+							<goal>test-compile</goal>  <!-- use this goal to weave all your test classes -->
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.8</version>
+				<configuration>
+					<ajdtVersion>1.5</ajdtVersion>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

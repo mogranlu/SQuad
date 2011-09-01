@@ -9,5 +9,6 @@
 	
 	<modules>
 		<module>java/wiki-test</module>
+		<module>java/SampleJuanApplication</module>
 	</modules>
 </project>
