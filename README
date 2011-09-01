@@ -2,30 +2,55 @@
   SQuad (acronym for "Some Simple Script Samples" or "Sx4")
 +---------------------------------------------------------------+
 
-The ".project" and ".pydevproject" files in the root folder contain
+ABOUT:
+-------
+This is the bundle of sample scripts that worked as a basis for the talk:
+"The Forgotten Art of Automation - 12 Concrete Scripts That Will Free Your Energies",
+held at the JavaZone conference in September 2011.
+
+APOLOGY:
+---------
+The tree structure may be a little bit misguiding, for instance by providing
+a folder called "groovy", and another one called "jython". These were part
+of my original plan for the 12 scripts, but had to yield for other scripts
+due to a combination of time (lack of), ownership of code (lack of), and perhaps
+most importantly: skills (lack of). The folders have not been deleted from 
+this "repository" due to the simple fact that I never gave up the idea of making
+these scripts (still haven't), but they did not make it in time to "JavaZone X".
+
+HOWTO / GETTING STARTED:
+-------------------------
+* Maven projects:
+Some of the sub-modules need to be built using maven (see root pom.xml file).
+More specifically, these modules are:
+    - "java/wiki-test" 
+    - "java/SampleJuanApplication"
+
+To be able to import them in eclipse, run "mvn eclipse:eclipse". This will 
+create ".project" files so that the modules can be imported in Eclipse.
+
+* Non-maven projects:
+For the other projects, the .project (and some other dot-files) have
+been put under version control. These can be opened directly without
+running any maven goals.
+
+* Eclipse plugins:
+ > aspectj plugin for eclipse is needed if you want to run JUAN-ified projects
+from within eclipse (maven plugins will be automatically downloaded
+when building the modules, ... I think!). 
+ > Read the "./bash/README" file for tips on BASH-plugin to Eclipse.
+ > The ".project" and ".pydevproject" files in the root folder contain
 eclipse settings that require a Jython installation on the development
 machine, along with the PyDev plugin for eclipse. The PyDev plugin can
 be downloaded (or added as an eclipse installation update site)
 at: http://pydev.org/updates.
+ > Never found out how to maven-ify grovy! It's a long-shot "TODO"!
 
-This project contains various scripts samples, implemented in various 
-scripting languages.
 
-src/
-|  |
-|  + bash/
-|  |
-|  + groovy/
-|  |
-|  + jython/
-|  |
-|  + powershell/
-|
-test/
-|  |
-|  + testdata/ (dummy file structure for testing purposes)
-|
-+ README (this document)
-+ .project
-+ .pydevproject
+     !! HAPPY SCRIPTING / HACKING / COPY & PASTING !!    
+     !! Morten Granlund !!
+
+
+
+
 

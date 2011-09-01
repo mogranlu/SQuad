@@ -6,9 +6,14 @@
 	<version>1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>SQuad</name>
-	
+
 	<modules>
+		<!--  Made it: -->
 		<module>java/wiki-test</module>
 		<module>java/SampleJuanApplication</module>
+		
+		<!-- Never made it in time for JavaZone X --> <!-- 
+		<module>groovy</module> 
+		<module>jython</module> -->
 	</modules>
 </project>
